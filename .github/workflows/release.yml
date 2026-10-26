@@ -1,0 +1,23 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Папка внутри архива должна называться как .toc, иначе WoW не увидит аддон
+      - name: Собрать архив
+        run: git archive --format=zip --prefix=HogwartsPhaseMarks/ -o HogwartsPhaseMarks.zip HEAD
+
+      - name: Опубликовать релиз
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "$GITHUB_REF_NAME" HogwartsPhaseMarks.zip --title "$GITHUB_REF_NAME" --generate-notes
