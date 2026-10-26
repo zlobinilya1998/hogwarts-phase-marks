@@ -1,0 +1,10 @@
+## Interface: 40402
+## Title: |cff9b1c1cHogwarts|r Phase Marks
+## Notes: Marks HP thresholds of phase transitions on boss health bars (Cataclysm raids).
+## Notes-ruRU: Засечки порогов смены фаз на полосе здоровья боссов рейдов Cataclysm.
+## Author: Rokych
+## Version: 2.0.0
+## SavedVariables: HogwartsPhaseMarksDB
+
+HogwartsPhaseMarks.lua
+HogwartsPhaseMarks_Options.lua
